@@ -60,8 +60,10 @@ func playGame() {
 		showTile(row, col)
 		if board[row][col] == "X"{
 			gameOver = true;
+			showAll();
 			printBoard();
 			fmt.Println("You lost :'(")
+			break
 		}
 
 
@@ -133,6 +135,14 @@ func constructBoard() {
 					board[r][c] = strconv.Itoa(count)
 				}
 			}
+		}
+	}
+}
+
+func showAll() {
+	for r := 0; r < len(board); r++ {
+		for c := 0; c < len(board[r]); c++ {
+			boardView[r][c] = true;
 		}
 	}
 }
